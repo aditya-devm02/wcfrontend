@@ -1,0 +1,45 @@
+/* EventsTable.css */
+.events-table {
+    margin: 20px auto;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    background-color: #ffffff;
+    max-width: 800px;
+}
+
+.events-table table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+.events-table th,
+.events-table td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: left;
+}
+
+.events-table th {
+    background-color: #4a90e2;
+    color: white;
+    font-weight: 600;
+}
+
+.events-table td {
+    font-size: 0.95rem;
+}
+
+.filter-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.filter-container input {
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
