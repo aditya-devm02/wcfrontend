@@ -1,24 +1,17 @@
 // src/services/api.js
-import axios from 'axios';
+export const loginWithGoogle = async (token) => {
+    const response = await fetch('https://wibackend.vercel.app/auth/google', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ token }),
+    });
 
-const API_URL = process.env.REACT_APP_API_URL || 'http://localhost:5001';
-
-export const loginWithGoogle = async (credential) => {
-    try {
-        const response = await axios.post(`${API_URL}/auth/google`, { credential });
-        return response.data;
-    } catch (error) {
-        throw error;
+    if (!response.ok) {
+        throw new Error('Failed to login');
     }
-};
 
-export const fetchGoogleCalendarEvents = async (accessToken) => {
-    try {
-        const response = await axios.get(`${API_URL}/calendar/events`, {
-            headers: { Authorization: `Bearer ${accessToken}` }
-        });
-        return response.data;
-    } catch (error) {
-        throw error;
-    }
+    const data = await response.json();
+    return data;  // Assuming the response contains user info, such as { name, email, accessToken }
 };
