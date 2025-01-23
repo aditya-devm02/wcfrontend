@@ -1,6 +1,6 @@
 // src/services/api.js
 export const loginWithGoogle = async (token) => {
-    const response = await fetch('https://wibackend.vercel.app/auth/google', {
+    const response = await fetch('wibackend.vercel.app', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
