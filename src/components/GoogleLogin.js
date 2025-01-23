@@ -1,4 +1,3 @@
-// src/components/GoogleLogin.js
 import React from 'react';
 import { GoogleLogin as GoogleLoginComponent } from '@react-oauth/google';
 import { loginWithGoogle } from '../services/api';
@@ -6,7 +5,10 @@ import { loginWithGoogle } from '../services/api';
 function GoogleLogin({ onLoginSuccess }) {
     const handleGoogleSuccess = async (credentialResponse) => {
         try {
+            // Send the credential to the backend for verification
             const userData = await loginWithGoogle(credentialResponse.credential);
+            
+            // Pass the user data to the parent component (App.js)
             onLoginSuccess(userData);
         } catch (error) {
             console.error('Login failed', error);
